@@ -6,12 +6,15 @@ public class Healer extends Unit {
     // healer specific properties, like the amount of health he can recover
     private double healthRecoveryValue;
 
+    public Healer(){
+    super();
+}
     public Healer(double healthRecoveryValue, Team friends, Team enemies) {
 
         // here you call the superconstructor and assign some default values
         // each hero would be created only once, so that's why we use constructors here
         // just for example:
-        super(1000, 1000, 1, friends, enemies, 100,
+        super(350,1000, 1000, 1, friends, enemies, 100,
                 100, 2);
         healthRecoveryValue = 100;
     }
@@ -46,5 +49,10 @@ public class Healer extends Unit {
         if (stillCanAttack) {
             // here the logic of calculating the physical attack damage and making a damage to the enemy
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Healer";
     }
 }

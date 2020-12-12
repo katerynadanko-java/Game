@@ -14,6 +14,9 @@ public class Item {
 
     private double price; // the value this characteristics can add
 
+    public Item(){
+
+    }
     public Item(Characteristics characteristics, double value, double price) {
         this.characteristics = characteristics;
         this.value = value;

@@ -18,7 +18,7 @@ public class Shop {
         itemList.add(new Item(Characteristics.ARMOR_INCREASE, 100, 30));
         itemList.add(new Item(Characteristics.CRITICAL_DAMAGE_CHANSE, 500,80));
         itemList.add(new Item(Characteristics.DEMAGE_INCREASE, 120, 50));
-        itemList.add(new Item(Characteristics.FENCE_PHYSICALLY_ATTACK, 130, 2));
+        itemList.add(new Item(Characteristics.FENCE_PHYSICALLY_ATTACK, 130, 20));
         itemList.add(new Item(Characteristics.FENCE_USE_MAGIC_NEXT_OFFENSIVE, 90, 30));
         itemList.add(new Item(Characteristics.FENCE_USE_OBJECTS_2_MOVES, 200, 120));
         itemList.add(new Item(Characteristics.MAGIC_DAMAGE, 200, 80));

@@ -28,9 +28,13 @@ public abstract class Unit {
     // put here others characteristics that unit can have (armor, critical damage chance, etc.)
 
     // TODO: expand this constructor and assign the appropriate values (armor, damage, critical damage chance, etc.)
-    public Unit(double healthMax, double healthCurrent, double level,
+    public Unit(){
+
+    }
+    public Unit(double unitPrice, double healthMax, double healthCurrent, double level,
                 Team friends, Team enemies, double armour, double baseAttackDamage,
-                double criticalDamageChance /*, you extend it here */) {
+                double criticalDamageChance) {
+        this.unitPrice = unitPrice;
         this.healthMax = healthMax;
         this.healthCurrent = healthCurrent;
         this.level = level;
@@ -75,11 +79,13 @@ public abstract class Unit {
 
     // we mark these methods as final to avoid changes by specific unit
     protected final double getHeroMaxHealth() {
-        return healthMax /* here you should add the health given by items and then use this method for calculating*/;
+        return healthMax /* here you should add the health given by items and then use
+        this method for calculating*/;
     }
 
     protected final double getHeroCurrentHealth() {
-        return healthCurrent /* here you should add the health given by items and then use this method for calculating*/;
+        return healthCurrent /* here you should add the health given by items and then
+        use this method for calculating*/;
     }
 
     protected double getHealthLevelInPercentage() {

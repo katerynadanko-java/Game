@@ -17,17 +17,19 @@ public class Team implements Iterable<Unit>{
 
     protected List<Unit> units;
 
-    public Team(String teamName, TeamSide teamSide) {
+    public Team (String teamName, TeamSide teamSide) {
         this.teamName = teamName;
         this.teamSide = teamSide;
-        List<Unit> units = new ArrayList<>();
+        this.units = new ArrayList<>();
+
+
         // assign the teamName and the teamSide values
         // initialize the units with a new ArrayList<>();
     }
 
     public void addUnit (Unit unit) throws TeamNumberException, MagicianNumberException,
-            KnightNumberException,ArcherNumberException, HealerNumberException{
-        if(units.size()>5){
+            KnightNumberException, ArcherNumberException, HealerNumberException{
+        if(units.size()>4){
             throw new TeamNumberException("You already have 5 players!");
         }
         if (unit instanceof Magic) {
@@ -69,6 +71,7 @@ public class Team implements Iterable<Unit>{
         return units;
     }
 
+
     // here you can skip editing this logic, remember about the foreach-syntax and on which interface it's based on (Iterable)
     @Override
     public Iterator<Unit> iterator() {
@@ -83,5 +86,9 @@ public class Team implements Iterable<Unit>{
     @Override
     public Spliterator<Unit> spliterator() {
         return units.spliterator();
+    }
+
+    public double getMoneyAvailable() {
+        return moneyAvailable;
     }
 }
