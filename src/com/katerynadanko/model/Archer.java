@@ -1,5 +1,8 @@
 package com.katerynadanko.model;
 
+import com.katerynadanko.GameComponent;
+
+@GameComponent
 public class Archer extends Unit {
 
 
@@ -15,7 +18,7 @@ public class Archer extends Unit {
 
     @Override
     public void hit(Unit other) {
-
+    healthCurrent = healthMax - attackDamage;
     }
 
     @Override

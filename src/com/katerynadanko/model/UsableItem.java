@@ -1,8 +1,9 @@
 package com.katerynadanko.model;
 
+import com.katerynadanko.GameComponent;
 import com.katerynadanko.model.Characteristics;
 import com.katerynadanko.model.Item;
-
+@GameComponent
 public class UsableItem extends Item {
     public UsableItem(Characteristics characteristics, double value, double price) {
         super(characteristics, value, price);

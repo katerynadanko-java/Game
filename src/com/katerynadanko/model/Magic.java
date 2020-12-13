@@ -1,5 +1,8 @@
 package com.katerynadanko.model;
 
+import com.katerynadanko.GameComponent;
+
+@GameComponent
 public class Magic extends Unit {
 
     public Magic(){

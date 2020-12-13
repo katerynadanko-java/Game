@@ -6,7 +6,7 @@ import com.katerynadanko.model.Unit;
 import com.katerynadanko.service.HeroRandomizer;
 
 import java.util.List;
-
+@GameComponent
 public class Fight {
     private static int roundCounter = 1;
 
@@ -28,7 +28,7 @@ public class Fight {
 
         for (Unit unit : unitActionsSequence) {
             Unit target = unit.getTarget();
-            System.out.println("Unit " + unit/* put your information about the unit */ + " attacks " + target);
+            System.out.println("Unit " + unit /* put your information about the unit */ + " attacks " + target);
             unit.hit(target);
         }
 

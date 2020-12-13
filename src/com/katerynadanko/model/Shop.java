@@ -1,11 +1,12 @@
 package com.katerynadanko.model;
 
+import com.katerynadanko.GameComponent;
 import com.katerynadanko.model.Characteristics;
 import com.katerynadanko.model.Item;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@GameComponent
 public class Shop {
     private List<Item> itemList;
 

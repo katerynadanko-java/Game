@@ -1,8 +1,11 @@
 package com.katerynadanko.model;
 
+import com.katerynadanko.GameComponent;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
+@GameComponent
 public abstract class Unit {
     double unitPrice;
 
@@ -47,6 +50,9 @@ public abstract class Unit {
 
     public abstract void hit(Unit other);
 
+    public double getAttackDamage(Unit init){
+    return attackDamage-armour;
+}
     // common for all units logic:
     // add your methods here
 
@@ -72,6 +78,7 @@ public abstract class Unit {
         }
         return target;
     }
+
 
     public boolean isAlive() {
         return getHeroCurrentHealth() >= 0;

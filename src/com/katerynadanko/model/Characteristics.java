@@ -1,5 +1,8 @@
 package com.katerynadanko.model;
 
+import com.katerynadanko.GameComponent;
+
+@GameComponent
 public enum  Characteristics {
     HEALTH_INCREASE,
     ARMOR_INCREASE,

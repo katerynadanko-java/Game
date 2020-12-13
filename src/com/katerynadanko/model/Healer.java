@@ -1,5 +1,9 @@
 package com.katerynadanko.model;
 
+import com.katerynadanko.GameComponent;
+
+import java.util.Random;
+@GameComponent
 public class Healer extends Unit {
     public static double healthHealedStatistics = 0;
 
@@ -22,6 +26,9 @@ public class Healer extends Unit {
     @Override
     public void hit(Unit other) {
         // here should be a specific logic
+        Random random = new Random();
+//       Unit enemyToHit = enemies.get(random.nextInt(enemies.size());
+//       attackDamage = getAttackDamage(enemyToHit);
 
         // check the invertory and try to use an item
         int itemUses = 0;

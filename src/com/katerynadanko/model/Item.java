@@ -1,8 +1,10 @@
 package com.katerynadanko.model;
 
+import com.katerynadanko.GameComponent;
+
 import java.util.ArrayList;
 import java.util.List;
-
+@GameComponent
 public class Item {
     private static final List<Item> itemsInTheGame = new ArrayList<>();
 
