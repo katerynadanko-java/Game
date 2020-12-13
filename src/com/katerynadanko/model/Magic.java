@@ -1,5 +1,8 @@
 package com.katerynadanko.model;
 
+import com.katerynadanko.GameComponent;
+
+@GameComponent
 public class Magic extends Unit {
 
     public Magic(){
@@ -12,6 +15,9 @@ public class Magic extends Unit {
 
     @Override
     public void hit(Unit other) {
+        if (other.isAlive()) {
+            other.healthCurrent -= attackDamage;
+        }
 
     }
 

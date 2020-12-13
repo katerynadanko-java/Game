@@ -1,5 +1,8 @@
 package com.katerynadanko.model;
 
+import com.katerynadanko.GameComponent;
+
+@GameComponent
 public class Knight extends Unit {
 
     public Knight(){
@@ -13,6 +16,9 @@ public class Knight extends Unit {
 
     @Override
     public void hit(Unit other) {
+        if (other.isAlive()) {
+            other.healthCurrent -= attackDamage;
+        }
         // here your code
     }
 

@@ -45,7 +45,8 @@ public class GameApplication {
                     break;
                 case 3:
                     System.out.println("Start Fighting...");
-                    new Arena("Koliseum", firstTeam, secondTeam);
+                    new Arena("Koliseum", firstTeam, secondTeam).fightTillTeamIsAlive();
+
                     break;
                 case 10:
                     System.out.println("Exiting...");

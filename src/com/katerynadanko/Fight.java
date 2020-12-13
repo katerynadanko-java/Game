@@ -6,7 +6,7 @@ import com.katerynadanko.model.Unit;
 import com.katerynadanko.service.HeroRandomizer;
 
 import java.util.List;
-
+@GameComponent
 public class Fight {
     private static int roundCounter = 1;
 
@@ -25,13 +25,13 @@ public class Fight {
         System.out.println("Fight " + number + " has been started:");
 
         List<Unit> unitActionsSequence = HeroRandomizer.randomizeUnits(firstTeam, secondTeam);
-
-        for (Unit unit : unitActionsSequence) {
-            Unit target = unit.getTarget();
-            System.out.println("Unit " + unit/* put your information about the unit */ + " attacks " + target);
-            unit.hit(target);
-        }
-
+while (roundCounter>30) {
+    for (Unit unit : unitActionsSequence) {
+        Unit target = unit.getTarget();
+        System.out.println("Unit " + unit /* put your information about the unit */ + " attacks " + target);
+        unit.hit(target);
+    }
+}
         System.out.println("Fight finished");
 
         Item.onFightFinished();

@@ -2,7 +2,7 @@ package com.katerynadanko;
 
 import com.katerynadanko.model.Team;
 import com.katerynadanko.model.Unit;
-
+@GameComponent
 public class Arena {
     private String name;
 

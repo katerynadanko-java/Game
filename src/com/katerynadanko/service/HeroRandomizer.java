@@ -1,12 +1,13 @@
 package com.katerynadanko.service;
 
+import com.katerynadanko.GameComponent;
 import com.katerynadanko.model.Team;
 import com.katerynadanko.model.Unit;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
+@GameComponent
 public class HeroRandomizer {
     private HeroRandomizer() {
         throw new RuntimeException();

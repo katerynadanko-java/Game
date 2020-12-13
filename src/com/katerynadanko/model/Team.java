@@ -1,5 +1,6 @@
 package com.katerynadanko.model;
 
+import com.katerynadanko.GameComponent;
 import com.katerynadanko.exceptions.*;
 
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Spliterator;
 import java.util.function.Consumer;
-
+@GameComponent
 public class Team implements Iterable<Unit>{
     protected final TeamSide teamSide;
 
@@ -66,7 +67,9 @@ public class Team implements Iterable<Unit>{
 
         // here the logic where you check for the maximum allowed number of magics, healers, etc and you add them to the unit list.
     }
-
+    public int size() {
+        return units.size();
+    }
     public List<Unit> getUnits() {
         return units;
     }
