@@ -29,11 +29,8 @@ public class Archer extends Unit {
 
         if (other.isAlive()) {
             if (other1.isAlive()) {
-
                 other.attackDamage = 1 * getAttackDamage(other);
-
                 other1.attackDamage = 0.7 * getAttackDamage(other1);
-
             }
         }
         attackDamage = this.getAttackDamage(other);

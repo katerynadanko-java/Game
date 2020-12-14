@@ -21,11 +21,14 @@ public class Magic extends Unit {
     @Override
     public void hit(Unit other) {
         if (other.isAlive()) {
-            attackDamage = 10*attackDamage;
+            attackDamage = 10*getAttackDamage(other);
             for (int i = 0; i<3; i++){
-                attackDamage = attackDamage/3;
+                attackDamage = getAttackDamage(other)/3;
             }
-
+            attackDamage = getAttackDamage(other);
+            for (int i = 0; i<4; i++) {
+                attackDamage = getAttackDamage(other);
+            }
 
 
 //            other.healthCurrent -= attackDamage;
