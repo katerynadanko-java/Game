@@ -19,7 +19,8 @@ public class ItemChoser implements InteractiveMenuElement {
     private ItemGameChouser getItemGameChouser() {
         return itemGameChouser;
     }
-
+//    List<Unit> units;
+//public TeamChoser teamChoser = new TeamChoser(units);
 
     @Override
     public void printMenu() {
@@ -30,15 +31,15 @@ public class ItemChoser implements InteractiveMenuElement {
     }
 
     private void printAvailableItems() {
-        System.out.println("Print 1 to choose HEALTH_INCREASE");
-        System.out.println("Print 2 to choose ARMOR_INCREASE");
-        System.out.println("Print 3 to choose DEMAGE_INCREASE");
-        System.out.println("Print 4 to choose CRITICAL_DAMAGE_CHANSE");
-        System.out.println("Print 5 to choose MAGIC_DAMAGE");
-        System.out.println("Print 6 to choose MAGICAL_IMMUNITY");
-        System.out.println("Print 7 to choose FENCE_USE_OBJECTS_2_MOVES");
-        System.out.println("Print 8 to choose FENCE_USE_MAGIC_NEXT_OFFENSIVE");
-        System.out.println("Print 9 to choose FENCE_PHYSICALLY_ATTACK");
+        System.out.println("Print 1 to choose HEALTH_INCREASE, prise 150 ");
+        System.out.println("Print 2 to choose ARMOR_INCREASE, prise 100");
+        System.out.println("Print 3 to choose DEMAGE_INCREASE, prise 500");
+        System.out.println("Print 4 to choose CRITICAL_DAMAGE_CHANSE, prise 120");
+        System.out.println("Print 5 to choose MAGIC_DAMAGE, prise 130");
+        System.out.println("Print 6 to choose MAGICAL_IMMUNITY, prise 90");
+        System.out.println("Print 7 to choose FENCE_USE_OBJECTS_2_MOVES, prise 200");
+        System.out.println("Print 8 to choose FENCE_USE_MAGIC_NEXT_OFFENSIVE, prise 200");
+        System.out.println("Print 9 to choose FENCE_PHYSICALLY_ATTACK, prise 150");
         System.out.println("Print 10 to go back to previous menu");
     }
 
@@ -85,7 +86,7 @@ public class ItemChoser implements InteractiveMenuElement {
         }
 
         @Override
-        public void decisionLoop() throws Exception {
+        public void decisionLoop() throws  Exception{
                 String read = null;
                 int action = 0;
                 lable:
@@ -93,39 +94,101 @@ public class ItemChoser implements InteractiveMenuElement {
                     switch (action) {
 
                         case 1:
-                            System.out.println("You add HEALTH_INCREASE to your hero");
+//                            teamChoser.setMoneyAvailable(teamChoser.getMoneyAvailable() -
+//                                    new Item (Characteristics.HEALTH_INCREASE, 150, 40).getPrice());
+//                            if (teamChoser.getMoneyAvailable() < new Item (Characteristics.HEALTH_INCREASE,
+//                                    150, 40).getPrice()) {
+//                                throw new NoMoneyExeptin("Not enough money on your account!");
+//                            }
+
+                            System.out.println("You add HEALTH_INCREASE to your hero!");
                             items.add(new Item(Characteristics.HEALTH_INCREASE, 150, 40));
                             break;
                         case 2:
-                            System.out.println("You add RMOR_INCREASE to your hero");
+//                            teamChoser.setMoneyAvailable(teamChoser.getMoneyAvailable() -
+//                                    new Item (Characteristics.ARMOR_INCREASE,100,30).getPrice());
+//                            if (teamChoser.getMoneyAvailable() < new Item (Characteristics.ARMOR_INCREASE,
+//                                    100,30).getPrice()) {
+//                                throw new NoMoneyExeptin("Not enough money on your account!");
+//                            }
+
+                            System.out.println("You add ARMOR_INCREASE to your hero");
                             items.add(new Item(Characteristics.ARMOR_INCREASE,100,30));
                             break;
                         case 3:
-                            System.out.println("You add DEMAGE_INCREASE to your hero");
+//                            teamChoser.setMoneyAvailable(teamChoser.getMoneyAvailable() -
+//                                    new Item (Characteristics.DEMAGE_INCREASE,500,80).getPrice());
+//                            if (teamChoser.getMoneyAvailable() < new Item (Characteristics.DEMAGE_INCREASE,
+//                                    500,80).getPrice()) {
+//                                throw new NoMoneyExeptin("Not enough money on your account!");
+//                            }
+
+                            System.out.println("You add DEMAGE_INCREASE to your hero! On your account");
                             items.add(new Item(Characteristics.DEMAGE_INCREASE,500,80));
                             break;
                         case 4:
-                            System.out.println("You add CRITICAL_DAMAGE_CHANSE to your hero");
+//                            teamChoser.setMoneyAvailable(teamChoser.getMoneyAvailable() -
+//                                    new Item (Characteristics.CRITICAL_DAMAGE_CHANSE,120,50).getPrice());
+//                            if (teamChoser.getMoneyAvailable() < new Item (Characteristics.CRITICAL_DAMAGE_CHANSE,
+//                                    120,50).getPrice()) {
+//                                throw new NoMoneyExeptin("Not enough money on your account!");
+//                            }
+
+                            System.out.println("You add CRITICAL_DAMAGE_CHANSE to your hero! On your account");
                             items.add(new Item(Characteristics.CRITICAL_DAMAGE_CHANSE,120,50));
                             break;
                         case 5:
-                            System.out.println("You add MAGIC_DAMAGE to your hero");
+//                            teamChoser.setMoneyAvailable(teamChoser.getMoneyAvailable() -
+//                                    new Item (Characteristics.MAGIC_DAMAGE,130,20).getPrice());
+//                            if (teamChoser.getMoneyAvailable() < new Item (Characteristics.MAGIC_DAMAGE,
+//                                    130,20).getPrice()) {
+//                                throw new NoMoneyExeptin("Not enough money on your account!");
+//                            }
+
+                            System.out.println("You add MAGIC_DAMAGE to your hero! On your account");
                             items.add(new Item(Characteristics.MAGIC_DAMAGE,130,20));
                             break;
                         case 6:
-                            System.out.println("You add MAGICAL_IMMUNITY to your hero");
+//                            teamChoser.setMoneyAvailable(teamChoser.getMoneyAvailable() -
+//                                    new Item (Characteristics.MAGICAL_IMMUNITY,90,30).getPrice());
+//                            if (teamChoser.getMoneyAvailable() < new Item (Characteristics.MAGICAL_IMMUNITY,
+//                                    90,30).getPrice()) {
+//                                throw new NoMoneyExeptin("Not enough money on your account!");
+//                            }
+
+                            System.out.println("You add MAGICAL_IMMUNITY to your hero! On your account");
                             items.add(new Item(Characteristics.MAGICAL_IMMUNITY,90,30));
                             break;
                         case 7:
-                            System.out.println("You add FENCE_USE_OBJECTS_2_MOVES to your hero");
+//                            teamChoser.setMoneyAvailable(teamChoser.getMoneyAvailable() -
+//                                    new Item (Characteristics.FENCE_USE_OBJECTS_2_MOVES,200,120).getPrice());
+//                            if (teamChoser.getMoneyAvailable() < new Item (Characteristics.FENCE_USE_OBJECTS_2_MOVES,
+//                                    200,120).getPrice()) {
+//                                throw new NoMoneyExeptin("Not enough money on your account!");
+//                            }
+
+                            System.out.println("You add FENCE_USE_OBJECTS_2_MOVES to your hero! On your account");
                             items.add(new Item(Characteristics.FENCE_USE_OBJECTS_2_MOVES,200,120));
                             break;
                         case 8:
-                            System.out.println("You add FENCE_USE_MAGIC_NEXT_OFFENSIVE to your hero");
+//                            teamChoser.setMoneyAvailable(teamChoser.getMoneyAvailable() -
+//                                    new Item (Characteristics.FENCE_USE_MAGIC_NEXT_OFFENSIVE,200,80).getPrice());
+//                            if (teamChoser.getMoneyAvailable() < new Item (Characteristics.FENCE_USE_MAGIC_NEXT_OFFENSIVE,
+//                                    200,80).getPrice()) {
+//                                throw new NoMoneyExeptin("Not enough money on your account!");
+//                            }
+
+                            System.out.println("You add FENCE_USE_MAGIC_NEXT_OFFENSIVE to your hero! On your account");
                             items.add(new Item(Characteristics.FENCE_USE_MAGIC_NEXT_OFFENSIVE,200,80));
                             break;
                         case 9:
-                            System.out.println("You add FENCE_PHYSICALLY_ATTACK to your hero");
+//                            teamChoser.setMoneyAvailable(teamChoser.getMoneyAvailable() -
+//                                    new Item (Characteristics.FENCE_PHYSICALLY_ATTACK,150,70).getPrice());
+//                            if (teamChoser.getMoneyAvailable() < new Item (Characteristics.FENCE_PHYSICALLY_ATTACK,150,70).getPrice()) {
+//                                throw new NoMoneyExeptin("Not enough money on your account!");
+//                            }
+
+                            System.out.println("You add FENCE_PHYSICALLY_ATTACK to your hero! On your account");
                             items.add(new Item(Characteristics.FENCE_PHYSICALLY_ATTACK,150,70));
                             break;
                         case 10:

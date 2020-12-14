@@ -72,7 +72,10 @@ public class GameApplication {
                 System.out.println("You have already Healer!");
             } catch (KnightNumberException e) {
                 System.out.println("You have already 3 Knights!");
-            }
+            } catch (NoMoneyExeptin e ) {
+              System.out.println("Not enough money on your account!");
+    }
+
     }
 
     public static void printMenu(){

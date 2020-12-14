@@ -7,9 +7,13 @@ import java.util.Random;
 public class Healer extends Unit {
     public static double healthHealedStatistics = 0;
 
+
     // healer specific properties, like the amount of health he can recover
     private double healthRecoveryValue;
 
+    public Healer(double unitPrise){
+        this.unitPrice = unitPrise;
+    }
     public Healer(){
     super();
 }
@@ -52,6 +56,7 @@ public class Healer extends Unit {
         for (Unit unit : friends) {
             // better to find a hero with a minimal value of the health
             if (unit.getHealthLevelInPercentage() < 0.3) {
+                setHealthRecoveryValue(50);
                 unit.healthIncrese(healthRecoveryValue); // you can implement this method in the unit or edit the unit state directly here
                 healthHealedStatistics += healthRecoveryValue;
                 stillCanAttack = false;
@@ -59,8 +64,14 @@ public class Healer extends Unit {
         }
 
         if (stillCanAttack) {
+            attackDamage = this.getAttackDamage(other);
             // here the logic of calculating the physical attack damage and making a damage to the enemy
         }
+    }
+
+
+    public void setHealthRecoveryValue(double healthRecoveryValue) {
+        this.healthRecoveryValue = healthRecoveryValue;
     }
 
     @Override

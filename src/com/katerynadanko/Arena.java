@@ -36,7 +36,7 @@ public class Arena {
             }
         }
 
-        System.out.println("some other messages about the teams");
+        System.out.println("The team number " + winner + " is the winner!");
     }
 
     private boolean checkIfTeamIsAlive(Team team) {

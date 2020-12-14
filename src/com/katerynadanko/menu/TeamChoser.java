@@ -10,6 +10,7 @@ import java.util.Scanner;
 public class TeamChoser implements InteractiveMenuElement {
     Scanner scanner = new Scanner(System.in);
     List<Unit> heroes;
+    private double moneyAvailable = 10_000;
 
     private HeroChouser heroChouser = new HeroChouser();
 
@@ -24,12 +25,22 @@ public class TeamChoser implements InteractiveMenuElement {
     ItemChoser magicItemChose = new ItemChoser(new Magic(), magicItems);
 
 
+
+
     public TeamChoser(List<Unit> heroes) {
         this.heroes = heroes;
     }
 
     private HeroChouser getHeroChouser() {
         return heroChouser;
+    }
+
+    public void setMoneyAvailable(double moneyAvailable) {
+        this.moneyAvailable = moneyAvailable;
+    }
+
+    public double getMoneyAvailable() {
+        return moneyAvailable;
     }
 
     @Override
@@ -95,10 +106,10 @@ public class TeamChoser implements InteractiveMenuElement {
     }
 
     private void printAvailableHeroes() {
-        System.out.println("Print 1 to choose Magician");
-        System.out.println("Print 2 to choose Knight");
-        System.out.println("Print 3 to choose Healer");
-        System.out.println("Print 4 to choose Archer");
+        System.out.println("Print 1 to choose Magician, prise 500");
+        System.out.println("Print 2 to choose Knight, prise 300");
+        System.out.println("Print 3 to choose Healer, prise 350");
+        System.out.println("Print 4 to choose Archer, prise 250");
         System.out.println("Print 10 to go back to previous menu");
     }
 
@@ -112,7 +123,9 @@ public class TeamChoser implements InteractiveMenuElement {
         }
 
         @Override
-        public void decisionLoop() throws TeamNumberException, MagicianNumberException, KnightNumberException, HealerNumberException, ArcherNumberException {
+        public void decisionLoop() throws TeamNumberException,
+                MagicianNumberException, KnightNumberException, HealerNumberException,
+                ArcherNumberException, NoMoneyExeptin {
             String read = null;
             int action = 0;
             lable:
@@ -126,8 +139,14 @@ public class TeamChoser implements InteractiveMenuElement {
                                 count() > 1) {
                             throw new MagicianNumberException("You already have 2 Magicians!");
                         }
-                        System.out.println("You add Magician to your team");
-                        heroes.add(new Magic());
+
+                        if (getMoneyAvailable() < new Magic(500).getUnitPrice()) {
+                            throw new NoMoneyExeptin("Not enough money on your account!");
+                        }
+                        setMoneyAvailable(getMoneyAvailable() - new Magic(500).getUnitPrice());
+                            System.out.println("You add Magician to your team! " + "On your account now: " + getMoneyAvailable());
+                            heroes.add(new Magic());
+
                         break;
                     case 2:
                         limitsHeroes();
@@ -136,8 +155,15 @@ public class TeamChoser implements InteractiveMenuElement {
                                 count() > 2) {
                             throw new KnightNumberException("You already have 3 Knights!");
                         }
-                        System.out.println("You add Knight to your team");
+
+                        if (getMoneyAvailable() < new Knight(300).getUnitPrice()) {
+                            throw new NoMoneyExeptin("Not enough money on your account!");
+                        }
+                        setMoneyAvailable(getMoneyAvailable() - new Knight(300).getUnitPrice());
+                        System.out.println("You add Knight to your team! "+ "On your account now: " + getMoneyAvailable());
+
                         heroes.add(new Knight());
+
                         break;
                     case 3:
                         limitsHeroes();
@@ -146,8 +172,15 @@ public class TeamChoser implements InteractiveMenuElement {
                                 count() > 0) {
                             throw new HealerNumberException("You already have Healer!");
                         }
-                        System.out.println("You add Healer to your team");
-                        heroes.add(new Healer());
+
+                            if (getMoneyAvailable() < new Healer(350).getUnitPrice()) {
+                                throw new NoMoneyExeptin("Not enough money on your account!");
+                            }
+                            setMoneyAvailable(getMoneyAvailable()-new Healer(350).getUnitPrice());
+                                System.out.println("You add Healer to your team!" + "On your account now: " + getMoneyAvailable());
+
+                                heroes.add(new Healer());
+
 //                        double currentMoney = getMoneyAvailable - hero.getUnitPrise;
                         break;
                     case 4:
@@ -157,8 +190,14 @@ public class TeamChoser implements InteractiveMenuElement {
                                 count() > 0) {
                             throw new ArcherNumberException("You already have Archer!");
                         }
-                        System.out.println("You add Archer to your team");
+
+                        if (getMoneyAvailable() < new Archer(250).getUnitPrice()) {
+                            throw new NoMoneyExeptin("Not enough money on your account!");
+                        }
+                        setMoneyAvailable(getMoneyAvailable()-new Archer(250).getUnitPrice());
+                        System.out.println("You add Archer to your team! "+ "On your account now: " + getMoneyAvailable());
                         heroes.add(new Archer());
+
                         break;
                     case 10:
                         System.out.println("Exiting... to previous menu");

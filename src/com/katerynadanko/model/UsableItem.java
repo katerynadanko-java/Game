@@ -10,6 +10,7 @@ public class UsableItem extends Item {
     }
 
     public void use(Unit unit) {
+
         // in case if this item can be usable (magic damage, or disables)
 
         // increasing the cooldown after being used

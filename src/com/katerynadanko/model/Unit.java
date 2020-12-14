@@ -28,6 +28,7 @@ public abstract class Unit {
     double criticalDamageChance;
     double attackDamage;
 
+
     // put here others characteristics that unit can have (armor, critical damage chance, etc.)
 
     // TODO: expand this constructor and assign the appropriate values (armor, damage, critical damage chance, etc.)
@@ -57,27 +58,33 @@ public abstract class Unit {
     // add your methods here
 
     public Unit getTarget() {
-        List<Unit> units = enemies.getUnits();
+//        for (Unit u : enemies) {
+//            if (u.isAlive()) {
+                List<Unit> units = enemies.getUnits();
 
-        Unit target = null;
-        boolean found = false;
+                Unit target = null;
+                boolean found = false;
 
-        boolean isEverybodyDead = true;
+                boolean isEverybodyDead = true;
 
-        for (Unit unit : units) {
-            if (unit.getHeroCurrentHealth() >= 0) {
-                isEverybodyDead = false;
+                for (Unit unit : units) {
+                    if (unit.isAlive())
+                    if (unit.getHeroCurrentHealth() >= 0) {
+                        isEverybodyDead = false;
+                    }
+                }
+
+                while (target == null) {
+                    Unit unit = units.get(random.nextInt(units.size()));
+                    if (unit.getHeroCurrentHealth() >= 0) {
+                        target = unit;
+                    }
+                }
+                return target;
+
             }
-        }
-
-        while (target == null) {
-            Unit unit = units.get(random.nextInt(units.size()));
-            if (unit.getHeroCurrentHealth() >= 0) {
-                target = unit;
-            }
-        }
-        return target;
-    }
+//        }
+//    }
 
 
     public boolean isAlive() {
@@ -86,11 +93,17 @@ public abstract class Unit {
 
     // we mark these methods as final to avoid changes by specific unit
     protected final double getHeroMaxHealth() {
+        for(Item i : invertory){
+            if(i.equals(new Item(Characteristics.HEALTH_INCREASE, 150,40))){
+                healthCurrent += new Item(Characteristics.HEALTH_INCREASE, 150,40).getValue();
+            }
+        }
         return healthMax /* here you should add the health given by items and then use
         this method for calculating*/;
     }
 
     protected final double getHeroCurrentHealth() {
+
         return healthCurrent /* here you should add the health given by items and then
         use this method for calculating*/;
     }
@@ -103,7 +116,13 @@ public abstract class Unit {
 
     }
     public void healthIncrese(double d) {
+        if(new Item(Characteristics.HEALTH_INCREASE, 150,40).getValue()<300) {
+            healthCurrent = (healthMax + d) / getHealthLevelInPercentage();
+            new Item(Characteristics.HEALTH_INCREASE, 150, 40).setValue(d - ((healthMax + d) / getHealthLevelInPercentage()));
+        }
+        healthCurrent = (healthMax + d);
     };
+
 
     public double getUnitPrice() {
         return unitPrice;
